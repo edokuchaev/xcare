@@ -694,26 +694,33 @@ body {
 
 /* ── PDF PAGES ── */
 
-.breadcrumb {
-  text-align: center;
-  padding: 20px 6%;
-  border-bottom: 1px solid rgba(139, 111, 78, 0.1);
+.btn-forward {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 100;
+  border-radius: 100px;
+  padding: 10px 24px;
+  border: 1px solid #7A8C5E;
+  color: #7A8C5E;
+  background: transparent;
   font-family: 'Jost', sans-serif;
   font-size: 13px;
-  color: #8B6F4E;
-}
-
-.breadcrumb a {
-  color: #8B6F4E;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   text-decoration: none;
+  transition: box-shadow 0.2s ease;
 }
 
-.breadcrumb a:hover {
-  text-decoration: underline;
+.btn-forward:hover {
+  box-shadow: 0 0 18px rgba(122, 140, 94, 0.35);
 }
 
 .pdf-page {
-  padding: 32px 6% 48px;
+  padding-top: 80px;
+  padding-left: 6%;
+  padding-right: 6%;
+  padding-bottom: 48px;
 }
 
 .pdf-back {
