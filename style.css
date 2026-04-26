@@ -692,6 +692,29 @@ body {
   }
 }
 
+/* ── PHOTO DIVIDER ── */
+
+.photo-divider {
+  width: 100%;
+  height: 400px;
+  background-image: url('assets/background1.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .photo-divider {
+    background-attachment: scroll;
+    height: 260px;
+  }
+}
+
+.photo-divider--2 {
+  background-image: url('assets/background2.png');
+}
+
 /* ── PDF PAGES ── */
 
 .btn-forward {
