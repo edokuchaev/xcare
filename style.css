@@ -225,7 +225,7 @@ body {
 
 .cards-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   max-width: 1200px;
 }
@@ -258,6 +258,11 @@ body {
 .card p {
   font-size: 16px;
   line-height: 1.85;
+}
+
+.card-icon {
+  display: block;
+  margin-bottom: 16px;
 }
 
 @media (max-width: 768px) {
@@ -671,6 +676,12 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .breadcrumb {
+    text-align: left;
+  }
+}
+
 @media (max-width: 640px) {
   .footer-inner {
     flex-direction: column;
@@ -679,4 +690,33 @@ body {
   .footer-right {
     align-items: flex-start;
   }
+}
+
+/* ── PDF PAGES ── */
+
+.breadcrumb {
+  text-align: center;
+  padding: 20px 6%;
+  border-bottom: 1px solid rgba(139, 111, 78, 0.1);
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  color: #8B6F4E;
+}
+
+.breadcrumb a {
+  color: #8B6F4E;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.pdf-page {
+  padding: 32px 6% 48px;
+}
+
+.pdf-back {
+  margin-top: 24px;
+  text-align: center;
 }

@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(git *)",
-      "Bash(npx serve *)"
+      "Bash(npx serve *)",
+      "Bash(grep -E '\\\\.\\(html|jsx|tsx|vue|svelte|css|js|ts\\)$')"
     ]
   }
 }
