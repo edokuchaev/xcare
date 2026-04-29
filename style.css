@@ -365,7 +365,7 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-top: 32px;
+  margin-top: 48px;
 }
 
 .mentor-quote__avatar {
@@ -402,6 +402,16 @@ body {
   font-family: 'Jost', system-ui, sans-serif;
   font-size: 13px;
   color: #3D2B1A;
+}
+
+.mentor-quote__contact-offer {
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  font-style: normal;
+  color: #8B6F4E;
+  margin-top: 64px;
+  margin-bottom: 16px;
 }
 
 .mentor-quote__actions {
