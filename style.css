@@ -404,21 +404,18 @@ body {
   color: #3D2B1A;
 }
 
-.mentor-quote__contact-offer {
+.mentor-quote__org-link {
   font-family: 'Jost', system-ui, sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  font-style: normal;
+  font-size: 13px;
   color: #8B6F4E;
-  margin-top: 64px;
-  margin-bottom: 16px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139, 111, 78, 0.3);
+  margin-top: 2px;
+  width: fit-content;
 }
 
-.mentor-quote__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 24px;
+.mentor-quote__org-link:hover {
+  border-bottom-color: #8B6F4E;
 }
 
 
