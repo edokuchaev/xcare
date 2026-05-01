@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)file:///Users/jeffdokuchaev/Downloads/DMV_CA_Cheatsheet_v2.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DMV CA — Шпаргалка v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #14110F;
+    --paper: #FAF7F2;
+    --rule: #14110F;
+    --accent: #D4A017;
+    --highlight: #FFE873;
+    --warn: #C8362D;
+    --muted: #6B6358;
+    --soft: #EDE7DA;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 11.5px;
+    line-height: 1.4;
+    padding: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  .masthead {
+    border-top: 6px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 16px 0 12px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .masthead h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 42px;
+    line-height: 0.95;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+  }
+  .masthead h1 span {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0 8px;
+  }
+  .masthead .meta {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    line-height: 1.5;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .masthead .meta strong { color: var(--ink); display: block; font-size: 11px; }
+  .masthead .ver {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--ink);
+    padding: 1px 6px;
+    margin-top: 4px;
+    font-weight: 700;
+  }
+
+  .lede {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding: 4px 0 4px 12px;
+    margin-bottom: 20px;
+  }
+
+  /* GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 700px)  { .grid { grid-template-columns: 1fr; } }
+
+  /* CARD */
+  .card {
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    padding: 12px 14px 14px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .card.dark {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .card.dark .num { color: var(--accent); }
+  .card.dark .label { color: rgba(250, 247, 242, 0.85); }
+  .card.dark .label strong { color: var(--paper); }
+
+  .card h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .card h2 .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0;
+  }
+  .card.dark h2 .tag { color: rgba(250, 247, 242, 0.45); }
+
+  /* ROWS */
+  .row {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 10px;
+    padding: 4px 0;
+    border-bottom: 1px dotted rgba(0,0,0,0.15);
+    align-items: baseline;
+  }
+  .card.dark .row { border-bottom-color: rgba(250,247,242,0.2); }
+  .row:last-child { border-bottom: none; }
+
+  .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .num.hl { background: var(--highlight); padding: 1px 4px; }
+  .num.warn { color: var(--warn); }
+
+  .label {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  /* CURB COLORS */
+  .curbs { display: flex; flex-direction: column; gap: 4px; }
+  .curb {
+    display: grid;
+    grid-template-columns: 14px 60px 1fr;
+    gap: 8px;
+    align-items: start;
+    font-size: 10.5px;
+    padding: 4px 0;
+    border-bottom: 1px dotted rgba(0,0,0,0.15);
+  }
+  .curb:last-child { border-bottom: none; }
+  .curb .swatch {
+    width: 14px; height: 14px;
+    border: 1.5px solid var(--ink);
+    margin-top: 2px;
+  }
+  .curb .name {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--highlight);
+    border: 1.5px solid var(--ink);
+    padding: 10px 12px;
+    margin-top: 12px;
+    font-size: 10.5px;
+    line-height: 1.4;
+    grid-column: 1 / -1;
+  }
+  .callout strong { 
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-size: 11px;
+  }
+
+  /* WARN BOX */
+  .warn-box {
+    background: var(--warn);
+    color: var(--paper);
+    padding: 10px 12px;
+    font-size: 10.5px;
+    line-height: 1.45;
+    grid-column: 1 / -1;
+    border: 1.5px solid var(--ink);
+  }
+  .warn-box strong {
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-size: 11px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* TIP */
+  .tip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    color: var(--muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0,0,0,0.15);
+    line-height: 1.4;
+  }
+  .card.dark .tip {
+    color: rgba(250, 247, 242, 0.65);
+    border-top-color: rgba(250,247,242,0.2);
+  }
+  .tip strong { color: var(--ink); }
+  .card.dark .tip strong { color: var(--accent); }
+
+  /* MNEMONIC */
+  .mnemonic {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    background: var(--ink);
+    color: var(--accent);
+    padding: 6px 10px;
+    margin: 8px 0 4px;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* INLINE NOTE */
+  .note-inline {
+    display: block;
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 2px;
+    font-style: italic;
+  }
+  .card.dark .note-inline { color: rgba(250, 247, 242, 0.6); }
+
+  /* STEPS */
+  .steps {
+    counter-reset: step;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 6px 0;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 8px;
+    align-items: baseline;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+  .step::before {
+    counter-increment: step;
+    content: counter(step);
+    font-family: 'Archivo Black', sans-serif;
+    background: var(--ink);
+    color: var(--accent);
+    text-align: center;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 11px;
+  }
+  .card.dark .step::before {
+    background: var(--accent);
+    color: var(--ink);
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 24px;
+    border-top: 3px double var(--ink);
+    padding-top: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  @media print {
+    body { padding: 12px; font-size: 10px; }
+    .grid { gap: 10px; }
+    .card { padding: 10px 12px; border-width: 1px; }
+    @page { size: A4; margin: 8mm; }
+  }
+
+  /* ============== QA BANK ============== */
+  .qa-divider {
+    margin: 48px 0 24px;
+    border-top: 6px solid var(--ink);
+    padding-top: 20px;
+  }
+  .qa-divider h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 36px;
+    line-height: 0.95;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .qa-divider h1 span {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0 8px;
+  }
+  .qa-divider .lede {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding: 4px 0 4px 12px;
+    margin-bottom: 16px;
+    font-size: 12px;
+  }
+
+  .qa-section {
+    margin-bottom: 32px;
+    page-break-inside: auto;
+  }
+  .qa-section h2.qa-section-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8px 12px;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .qa-section h2.qa-section-title .qa-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    text-transform: lowercase;
+    letter-spacing: 0;
+  }
+
+  article.qa {
+    border-left: 3px solid var(--ink);
+    padding: 8px 0 8px 14px;
+    margin-bottom: 14px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  article.qa .qa-q {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+  article.qa .qa-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 11px;
+    background: var(--ink);
+    color: var(--accent);
+    padding: 2px 6px;
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+  article.qa .qa-text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+  article.qa .qa-en {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    margin: 4px 0 6px;
+    line-height: 1.5;
+    padding-left: 38px;
+  }
+  article.qa .qa-en strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  article.qa .qa-answer {
+    font-size: 12px;
+    line-height: 1.45;
+    padding-left: 38px;
+    margin-bottom: 4px;
+  }
+  article.qa .qa-answer strong {
+    background: var(--highlight);
+    padding: 1px 4px;
+    font-weight: 700;
+  }
+  article.qa .qa-explain {
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: var(--muted);
+    padding-left: 38px;
+    border-top: 1px dotted rgba(0,0,0,0.15);
+    padding-top: 4px;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 700px) {
+    article.qa .qa-en,
+    article.qa .qa-answer,
+    article.qa .qa-explain { padding-left: 0; }
+  }
+
+  @media print {
+    .qa-divider h1 { font-size: 24px; }
+    .qa-section { margin-bottom: 18px; }
+    .qa-section h2.qa-section-title { font-size: 12px; padding: 5px 8px; }
+    article.qa { padding: 5px 0 5px 10px; margin-bottom: 8px; }
+    article.qa .qa-text { font-size: 10.5px; }
+    article.qa .qa-en { font-size: 8.5px; padding-left: 28px; }
+    article.qa .qa-answer { font-size: 10px; padding-left: 28px; }
+    article.qa .qa-explain { font-size: 9px; padding-left: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <h1>CALIFORNIA <span>DMV</span><br>ШПАРГАЛКА</h1>
+  <div class="meta">
+    <strong>Knowledge Test 2026</strong>
+    36 вопросов • Проходной балл 30/36<br>
+    3 попытки • Можно на русском<br>
+    <span class="ver">v2 — расширенная</span>
+  </div>
+</header>
+
+<div class="lede">
+  Все цифры — из официального California Driver's Handbook (DMV, 2025). Запоминайте именно числа: на этом срезается большинство опытных водителей. Жёлтым выделены критические значения.
+</div>
+
+<div class="grid">
+
+  <!-- СКОРОСТЬ -->
+  <section class="card dark">
+    <h2>Скорость <span class="tag">mph</span></h2>
+    <div class="row"><span class="num hl">15</span><span class="label">Слепой перекрёсток (без знаков); переулок (alley); ≤100 футов от ж/д переезда без барьера; некоторые школьные зоны</span></div>
+    <div class="row"><span class="num hl">25</span><span class="label">Школьная зона ≤500 футов (когда дети рядом); деловой и жилой район</span></div>
+    <div class="row"><span class="num">55</span><span class="label">Двухполосное неразделённое шоссе; буксировка прицепа</span></div>
+    <div class="row"><span class="num">65</span><span class="label">Большинство автомагистралей CA по умолчанию</span></div>
+    <div class="row"><span class="num">10</span><span class="label">Макс. скорость объезда трамвая/автобуса в зоне безопасности</span></div>
+    <div class="tip"><strong>Basic Speed Law:</strong> никогда не быстрее, чем безопасно для текущих условий — независимо от знака.</div>
+  </section>
+
+  <!-- АЛКОГОЛЬ -->
+  <section class="card">
+    <h2>Алкоголь BAC <span class="tag">DUI</span></h2>
+    <div class="row"><span class="num warn">0.08%</span><span class="label">Общий лимит, возраст 21+</span></div>
+    <div class="row"><span class="num warn">0.04%</span><span class="label">Коммерческие права; перевозка пассажиров за плату</span></div>
+    <div class="row"><span class="num warn">0.01%</span><span class="label">Возраст до 21; на испытательном сроке за DUI (любой возраст)</span></div>
+    <div class="row"><span class="num">10 дн</span><span class="label">Срок запросить административное слушание DMV после ареста</span></div>
+    <div class="row"><span class="num">14 дн</span><span class="label">Тот же срок, если уведомление пришло почтой (+4 дня)</span></div>
+    <div class="row"><span class="num">30 дн</span><span class="label">Действие временных бумажных прав после изъятия пластиковых</span></div>
+    <div class="row"><span class="num">10 лет</span><span class="label">DUI остаётся в водительском досье</span></div>
+    <div class="row"><span class="num">6 мес</span><span class="label">До этого срока — возможное тюремное заключение за DUI</span></div>
+    <div class="tip"><strong>Implied consent:</strong> садясь за руль в CA, вы автоматически соглашаетесь на тест на алкоголь/наркотики. Отказ → автоматическое лишение прав. <strong>DMV-слушание и уголовный суд — два независимых процесса.</strong></div>
+  </section>
+
+  <!-- ДИСТАНЦИИ -->
+  <section class="card">
+    <h2>Дистанции и сигналы <span class="tag">feet</span></h2>
+    <div class="row"><span class="num hl">100</span><span class="label">Подать сигнал поворота заранее (на обычной дороге)</span></div>
+    <div class="row"><span class="num">5 сек</span><span class="label">Заранее подать сигнал перестроения на автомагистрали</span></div>
+    <div class="row"><span class="num">100</span><span class="label">Запрет обгона: ≤100 футов от перекрёстка, моста, тоннеля, ж/д переезда</span></div>
+    <div class="row"><span class="num">300</span><span class="label">Мин. расстояние позади экстренной машины с сиреной/мигалками</span></div>
+    <div class="row"><span class="num hl">200</span><span class="label">Макс. длина проезда по центральной полосе для левого поворота <span class="note-inline">эта полоса НЕ для движения, только для подготовки к повороту/развороту</span></span></div>
+    <div class="row"><span class="num">200</span><span class="label">Макс. въезд на велодорожку перед поворотом</span></div>
+    <div class="row"><span class="num hl">150</span><span class="label">Gap для слияния — городские улицы (≈ полквартала, скорости 25–35 mph)</span></div>
+    <div class="row"><span class="num hl">300</span><span class="label">Gap для слияния — магистраль (≈ полный квартал, скорости 55–65 mph)</span></div>
+    <div class="row"><span class="num">3 фута</span><span class="label">Мин. боковое расстояние при обгоне велосипедиста</span></div>
+    <div class="tip"><strong>Правило 3 секунд:</strong> минимальная дистанция до машины впереди в нормальных условиях. В дождь/туман — увеличить до 4–5 сек.</div>
+  </section>
+
+  <!-- ПАРКОВКА: ЗАПРЕТЫ -->
+  <section class="card">
+    <h2>Парковка: где НЕЛЬЗЯ <span class="tag">feet</span></h2>
+    <div class="row"><span class="num hl">15</span><span class="label">От пожарного гидранта или въезда пожарной части</span></div>
+    <div class="row"><span class="num hl">20</span><span class="label">От пешеходного перехода (маркированного или нет)</span></div>
+    <div class="row"><span class="num">15</span><span class="label">От перехода, если есть расширение тротуара (curb extension)</span></div>
+    <div class="row"><span class="num">3</span><span class="label">От пандуса для инвалидной коляски</span></div>
+    <div class="row"><span class="num">—</span><span class="label">На пешеходном переходе, тротуаре, перед чужой подъездной дорогой</span></div>
+    <div class="row"><span class="num">—</span><span class="label">На мосту, в тоннеле (если знаком не разрешено)</span></div>
+    <div class="row"><span class="num">—</span><span class="label">В заштрихованной зоне рядом с местом для инвалидов</span></div>
+    <div class="row"><span class="num">4 ч</span><span class="label">Машина на скоростной автомагистрали → могут эвакуировать</span></div>
+  </section>
+
+  <!-- ЦВЕТА БОРДЮРОВ -->
+  <section class="card">
+    <h2>Цвета бордюров <span class="tag">curb colors</span></h2>
+    <div class="curbs">
+      <div class="curb"><span class="swatch" style="background:#C8362D"></span><span class="name">Красный</span><span class="label"><strong>Полный запрет.</strong> Стоянка, остановка, парковка — всё нельзя. Искл.: автобусы в спец. зонах</span></div>
+      <div class="curb"><span class="swatch" style="background:#fff"></span><span class="name">Белый</span><span class="label"><strong>Только посадка/высадка</strong> пассажиров. Уйти от машины НЕЛЬЗЯ</span></div>
+      <div class="curb"><span class="swatch" style="background:#F5C518"></span><span class="name">Жёлтый</span><span class="label"><strong>Погрузка/разгрузка</strong> груза или пассажиров. На некомм. ТС — оставаться при машине</span></div>
+      <div class="curb"><span class="swatch" style="background:#2D8F2D"></span><span class="name">Зелёный</span><span class="label"><strong>Парковка ограниченное время</strong> (указано на знаке/бордюре). Уйти можно</span></div>
+      <div class="curb"><span class="swatch" style="background:#1B5BA0"></span><span class="name">Синий</span><span class="label"><strong>Только инвалиды</strong> со спец. табличкой/номерным знаком</span></div>
+    </div>
+    <div class="tip">От строгого к свободному: <strong>Красный → Белый → Жёлтый → Зелёный → Синий (особая каста)</strong>. Жёлтый ≠ «осторожно» — это конкретно про погрузку.</div>
+  </section>
+
+  <!-- ДЕТИ -->
+  <section class="card dark">
+    <h2>Дети в машине <span class="tag">child safety</span></h2>
+    <div class="row"><span class="num hl">&lt; 2</span><span class="label">лет / &lt;40 фунтов / &lt;3'4" → кресло <strong>спиной вперёд</strong>. НЕ на переднем сиденье с подушкой!</span></div>
+    <div class="row"><span class="num hl">&lt; 8</span><span class="label">лет ИЛИ &lt;4'9" → детское кресло на <strong>заднем</strong> сиденье</span></div>
+    <div class="row"><span class="num">8+</span><span class="label">лет ИЛИ ≥4'9" → обычный ремень безопасности</span></div>
+    <div class="row"><span class="num">≤ 6</span><span class="label">лет — нельзя оставлять одного в машине (минимум 12-летний рядом)</span></div>
+    <div class="row"><span class="num">&lt;16</span><span class="label">Пассажир не пристёгнут — штраф водителю</span></div>
+    <div class="row"><span class="num">10"</span><span class="label">Минимум — расстояние <strong>от центра руля до грудины</strong>. Подушка раскрывается со скоростью 200+ км/ч</span></div>
+    <div class="tip"><strong>Запрещено курить</strong> в машине, если внутри несовершеннолетний. <strong>Подушка вблизи = смертельна</strong>, особенно для детей.</div>
+  </section>
+
+  <!-- ФАРЫ -->
+  <section class="card">
+    <h2>Фары и видимость <span class="tag">headlights</span></h2>
+    <div class="row"><span class="num hl">1000</span><span class="label">футов видимости — ниже этого включать фары обязательно</span></div>
+    <div class="row"><span class="num hl">500</span><span class="label">футов от встречного — переключить на ближний свет</span></div>
+    <div class="row"><span class="num hl">300</span><span class="label">футов сзади идущей машины — переключить на ближний свет</span></div>
+    <div class="row"><span class="num">30 мин</span><span class="label">после заката и до 30 мин до рассвета — фары обязательны</span></div>
+    <div class="row"><span class="num">—</span><span class="label">При дожде, тумане, снеге (если включены дворники → фары!)</span></div>
+    <div class="row"><span class="num">—</span><span class="label">Горные дороги и тоннели — даже днём</span></div>
+    <div class="mnemonic">Дворники ON → Фары ON</div>
+    <div class="tip">Только парковочные/габаритные огни — <strong>ехать запрещено</strong>. Дальний свет в тумане — <strong>НЕЛЬЗЯ</strong> (бликует).</div>
+  </section>
+
+  <!-- РАЗМЕТКА -->
+  <section class="card">
+    <h2>Дорожная разметка <span class="tag">lane markings</span></h2>
+    <div class="row"><span class="num">═══</span><span class="label"><strong>Двойная сплошная жёлтая</strong> — НЕ пересекать. Искл.: (1) HOV-выезд через спец. разрыв, (2) поворот в подъездную дорогу/частный проезд, (3) разворот (если не запрещён знаком и не в деловом районе)</span></div>
+    <div class="row"><span class="num">— — —</span><span class="label"><strong>Прерывистая жёлтая</strong> — обгон РАЗРЕШЁН, когда безопасно</span></div>
+    <div class="row"><span class="num">━━━</span><span class="label"><strong>Сплошная жёлтая</strong> в вашу сторону — обгон ЗАПРЕЩЁН</span></div>
+    <div class="row"><span class="num">═══</span><span class="label"><strong>Двойная сплошная белая</strong> — НЕ менять полосу (отделяет HOV/carpool)</span></div>
+    <div class="row"><span class="num">— — —</span><span class="label"><strong>Прерывистая белая</strong> — разделяет полосы одного направления</span></div>
+    <div class="row"><span class="num">▼▼▼</span><span class="label"><strong>Линия "Уступи"</strong> — белые треугольники, указывают откуда едут с приоритетом</span></div>
+    <div class="tip">Жёлтые линии = <strong>встречные направления</strong>. Белые линии = <strong>попутные</strong>. На комбинированной (сплошная+прерывистая) правило задаёт линия с <strong>вашей стороны</strong>.</div>
+  </section>
+
+  <!-- СВЕТОФОРЫ -->
+  <section class="card">
+    <h2>Светофоры <span class="tag">signals</span></h2>
+    <div class="row"><span class="num">●</span><span class="label"><strong>Сплошной красный</strong> — стоп. Поворот направо разрешён после ПОЛНОЙ остановки, если нет знака "NO TURN ON RED"</span></div>
+    <div class="row"><span class="num">→</span><span class="label"><strong>Красная стрелка</strong> — стоп. Поворачивать НЕЛЬЗЯ даже после остановки</span></div>
+    <div class="row"><span class="num">⚡</span><span class="label"><strong>Мигающий красный</strong> = стоп-знак. Остановиться, потом проехать</span></div>
+    <div class="row"><span class="num">●</span><span class="label"><strong>Сплошной жёлтый</strong> — внимание, скоро красный. Остановиться, если безопасно</span></div>
+    <div class="row"><span class="num">↰</span><span class="label"><strong>Мигающая жёлтая стрелка</strong> — поворот разрешён, но уступить встречным</span></div>
+    <div class="row"><span class="num">⚡</span><span class="label"><strong>Мигающий жёлтый</strong> — внимание, не обязательно останавливаться</span></div>
+    <div class="row"><span class="num">●</span><span class="label"><strong>Светофор не работает</strong> — действовать как при STOP во всех направлениях (4-way stop)</span></div>
+  </section>
+
+  <!-- ПРИОРИТЕТ -->
+  <section class="card dark">
+    <h2>Приоритет проезда <span class="tag">right-of-way</span></h2>
+    <div class="row"><span class="num">1.</span><span class="label">Кто <strong>первым</strong> подъехал к перекрёстку — едет первым</span></div>
+    <div class="row"><span class="num">2.</span><span class="label">Подъехали одновременно → уступить тому, кто <strong>справа</strong></span></div>
+    <div class="row"><span class="num">3.</span><span class="label"><strong>T-перекрёсток</strong> без знаков → приоритет у тех, кто едет по сквозной дороге</span></div>
+    <div class="row"><span class="num">4.</span><span class="label"><strong>Поворот налево</strong> → уступить встречным, идущим прямо</span></div>
+    <div class="row"><span class="num">5.</span><span class="label"><strong>Roundabout</strong> → уступить тем, кто УЖЕ внутри. Движение против часовой стрелки</span></div>
+    <div class="row"><span class="num">6.</span><span class="label"><strong>Узкая горная дорога</strong> → приоритет у того, кто едет ВВЕРХ. Спускающийся сдаёт назад</span></div>
+    <div class="row"><span class="num">7.</span><span class="label"><strong>Слепой пешеход</strong> с тростью/собакой → ВСЕГДА приоритет. Не сигналить</span></div>
+    <div class="row"><span class="num">8.</span><span class="label"><strong>Пешеходы</strong> на переходе (маркированном или нет) → приоритет</span></div>
+    <div class="row"><span class="num">9.</span><span class="label"><strong>Похоронная процессия</strong> с включёнными фарами → приоритет, не разрывать</span></div>
+  </section>
+
+  <!-- ПАРКОВКА НА УКЛОНЕ -->
+  <section class="card">
+    <h2>Парковка на уклоне <span class="tag">колёса!</span></h2>
+    <div class="row"><span class="num">↓</span><span class="label"><strong>Спуск + бордюр</strong> → колёса <strong>К бордюру</strong> (вправо)</span></div>
+    <div class="row"><span class="num">↑</span><span class="label"><strong>Подъём + бордюр</strong> → колёса <strong>ОТ бордюра</strong> (влево). Откатить назад до касания</span></div>
+    <div class="row"><span class="num">↕</span><span class="label"><strong>Без бордюра</strong> (любое направление) → колёса <strong>ВПРАВО</strong> (от центра дороги)</span></div>
+    <div class="mnemonic">Машина без тормозов покатится — куда?</div>
+    <div class="tip">Всегда: <strong>parking brake + передача "P"</strong> (механика → 1-я или R).</div>
+  </section>
+
+  <!-- ШТРАФЫ И БАЛЛЫ -->
+  <section class="card">
+    <h2>Штрафы и баллы <span class="tag">DMV record</span></h2>
+    <div class="row"><span class="num warn">4</span><span class="label">балла за <strong>12 месяцев</strong> → возможно лишение прав (взрослый)</span></div>
+    <div class="row"><span class="num warn">6</span><span class="label">баллов за <strong>24 месяца</strong> → возможно лишение прав</span></div>
+    <div class="row"><span class="num warn">8</span><span class="label">баллов за <strong>36 месяцев</strong> → возможно лишение прав</span></div>
+    <div class="row"><span class="num">36 мес</span><span class="label">Минимум — нарушение остаётся в досье</span></div>
+    <div class="row"><span class="num">18 мес</span><span class="label">Раз в этот период можно пройти Traffic School (1-балльный штраф)</span></div>
+    <div class="row"><span class="num">$1000</span><span class="label">Штраф в зоне дорожных работ; за выброс животных на трассу</span></div>
+    <div class="row"><span class="num">$1000</span><span class="label">+ лишение прав на 1 год за непропуск школьного автобуса с красными мигалками</span></div>
+    <div class="row"><span class="num">$2000</span><span class="label">+ до 1 года тюрьмы за оскорбление дорожного рабочего</span></div>
+    <div class="row"><span class="num">×2</span><span class="label">Штрафы УДВАИВАЮТСЯ в зонах дорожных работ при наличии рабочих</span></div>
+  </section>
+
+  <!-- СТРАХОВКА И ДТП -->
+  <section class="card">
+    <h2>Страховка и ДТП <span class="tag">insurance / SR-1</span></h2>
+    <div class="row"><span class="num hl">$30k</span><span class="label">Минимум — за смерть/травму одного человека</span></div>
+    <div class="row"><span class="num hl">$60k</span><span class="label">Минимум — за смерть/травму нескольких человек</span></div>
+    <div class="row"><span class="num hl">$15k</span><span class="label">Минимум — за повреждение имущества</span></div>
+    <div class="row"><span class="num hl">10 дн</span><span class="label">Подать SR-1 в DMV если: ущерб <strong>&gt;$1000 ИЛИ есть пострадавшие</strong>. Каждый водитель подаёт свой отчёт независимо от вины. Действует и на частной территории</span></div>
+    <div class="row"><span class="num">24 ч</span><span class="label">Сообщить полиции при пострадавших или погибших</span></div>
+    <div class="row"><span class="num">4 года</span><span class="label">Лишение прав за вождение без страховки при ДТП</span></div>
+    <div class="row"><span class="num">SR-22</span><span class="label">Сертификат страховки, нужный после DUI/нарушений (3 года)</span></div>
+    <div class="tip"><strong>SR-1 не нужен ТОЛЬКО если</strong> ущерб ≤$1000 И никто не пострадал — оба условия. Сомневаетесь — подавайте, лучше «лишний» отчёт, чем приостановка прав.</div>
+  </section>
+
+  <!-- НОВЫЙ РЕЗИДЕНТ -->
+  <section class="card dark">
+    <h2>Новый резидент CA <span class="tag">после переезда</span></h2>
+    <div class="row"><span class="num hl">10 дн</span><span class="label">Получить водительские права CA после становления резидентом</span></div>
+    <div class="row"><span class="num hl">20 дн</span><span class="label">Зарегистрировать своё авто в CA (требует smog check)</span></div>
+    <div class="row"><span class="num">10 дн</span><span class="label">Переоформить title при <strong>покупке</strong> машины</span></div>
+    <div class="row"><span class="num warn">5 дн</span><span class="label">Уведомить DMV о <strong>продаже</strong> машины (форма NRL)</span></div>
+    <div class="row"><span class="num">10 дн</span><span class="label">Уведомить о смене адреса (новая карта НЕ выдаётся автоматически)</span></div>
+    <div class="tip"><strong>Резидент</strong> = устроился на работу, голосует, платит налоги, снимает жильё надолго. Иностранные права (РФ, Украина, Беларусь) — <strong>не признаются</strong>, нужна полная сдача. Граждане США из других штатов освобождены от практики, но теорию сдают.</div>
+  </section>
+
+  <!-- ВРЕМЕННЫЕ РАМКИ -->
+  <section class="card">
+    <h2>Сроки и таймеры <span class="tag">deadlines</span></h2>
+    <div class="row"><span class="num">10 дн</span><span class="label">Запросить административное слушание DMV (личное уведомление)</span></div>
+    <div class="row"><span class="num">14 дн</span><span class="label">То же, если уведомление почтой</span></div>
+    <div class="row"><span class="num">10 дн</span><span class="label">Подать SR-1 о ДТП в DMV</span></div>
+    <div class="row"><span class="num">24 ч</span><span class="label">Полиции при пострадавших</span></div>
+    <div class="row"><span class="num">30 дн</span><span class="label">Действие временных прав после ареста за DUI</span></div>
+    <div class="row"><span class="num">30 дн</span><span class="label">Конфискация ТС если за рулём вашей машины поймали без прав</span></div>
+    <div class="row"><span class="num">36 мес</span><span class="label">Минимум — запись остаётся в досье</span></div>
+    <div class="row"><span class="num">10 лет</span><span class="label">DUI остаётся в досье</span></div>
+    <div class="row"><span class="num">3 года</span><span class="label">Срок действия SR-22 после DUI</span></div>
+    <div class="row"><span class="num">4 года</span><span class="label">Лишение прав за ДТП без страховки</span></div>
+    <div class="row"><span class="num">5 лет</span><span class="label">Стандартный срок действия CA-прав</span></div>
+  </section>
+
+  <!-- ЭКСТРЕННЫЕ НОМЕРА -->
+  <section class="card">
+    <h2>Экстренные номера и формы <span class="tag">phone / forms</span></h2>
+    <div class="row"><span class="num">911</span><span class="label">Любая экстренная ситуация: ДТП с пострадавшими, ж/д переезд блокирован</span></div>
+    <div class="row"><span class="num">511</span><span class="label">CHP Freeway Service Patrol — бесплатная помощь на автомагистралях</span></div>
+    <div class="row"><span class="num">DL 62</span><span class="label">Форма от окулиста — если не прошли тест зрения</span></div>
+    <div class="row"><span class="num">SR-1</span><span class="label">Форма отчёта о ДТП в DMV (10 дней)</span></div>
+    <div class="row"><span class="num">SR-22</span><span class="label">Сертификат финансовой ответственности (после DUI)</span></div>
+    <div class="row"><span class="num">DS 699</span><span class="label">Запрос на повторное обследование водителя</span></div>
+    <div class="row"><span class="num">NRL</span><span class="label">Notice of Release of Liability — при продаже авто (5 дней)</span></div>
+  </section>
+
+  <!-- ПОВОРОТЫ -->
+  <section class="card">
+    <h2>Повороты: ключевое <span class="tag">turns</span></h2>
+    <div class="row"><span class="num">→●</span><span class="label"><strong>Направо на красный:</strong> разрешено после ПОЛНОЙ остановки, если нет "NO TURN ON RED"</span></div>
+    <div class="row"><span class="num">→→</span><span class="label"><strong>Красная стрелка:</strong> поворот ЗАПРЕЩЁН в любом случае</span></div>
+    <div class="row"><span class="num">U</span><span class="label"><strong>Разворот (U-turn):</strong> через двойную жёлтую разрешён, если нет знака "NO U-TURN" и не в деловом районе</span></div>
+    <div class="row"><span class="num">←</span><span class="label"><strong>Левый поворот:</strong> начинать с крайней левой полосы, заканчивать в крайней левой того направления, куда повернули</span></div>
+    <div class="row"><span class="num">→</span><span class="label"><strong>Правый поворот:</strong> начинать и заканчивать максимально близко к правому краю</span></div>
+    <div class="row"><span class="num">⚠</span><span class="label">Поворот направо в автобусную полосу — РАЗРЕШЕНО только пересечь, не ехать</span></div>
+  </section>
+
+  <!-- ПОДВОДНЫЕ КАМНИ -->
+  <section class="card dark">
+    <h2>Где заваливают <span class="tag">trap questions</span></h2>
+    <div class="row"><span class="num">!</span><span class="label"><strong>Move Over Law:</strong> при стоящей экстренной/буксировочной/дорожной машине с мигалками — перестроиться И сбавить скорость</span></div>
+    <div class="row"><span class="num">!</span><span class="label"><strong>Школьный автобус с КРАСНЫМИ мигалками</strong> — стоп для всех направлений. Исключение: разделённая многополосная дорога — встречным можно</span></div>
+    <div class="row"><span class="num">!</span><span class="label"><strong>Большие ТС обгоняем СЛЕВА</strong>, всегда. Никогда справа</span></div>
+    <div class="row"><span class="num">!</span><span class="label"><strong>Перекрёсток заблокирован</strong> на зелёный — НЕ въезжать, даже если горит зелёный</span></div>
+    <div class="row"><span class="num">!</span><span class="label"><strong>Если уснул/устал</strong> — съехать и отдохнуть. Кофе не поможет</span></div>
+    <div class="row"><span class="num">!</span><span class="label"><strong>На горной дороге у вас отказали тормоза</strong> — рулить вверх, использовать ручник, тереть бок об ограждение</span></div>
+    <div class="row"><span class="num">!</span><span class="label"><strong>Машина заглохла на ж/д переезде</strong> — выйти НЕМЕДЛЕННО, бежать по диагонали навстречу поезду, потом 911</span></div>
+  </section>
+
+  <!-- ЗАНОС -->
+  <section class="card">
+    <h2>Занос (skid) и аквапланирование <span class="tag">skid recovery</span></h2>
+    <div class="steps">
+      <div class="step"><span><strong>Отпустить ГАЗ</strong> — снять ногу с педали газа плавно. Это первое действие</span></div>
+      <div class="step"><span><strong>НЕ тормозить</strong> резко. Если уже тормозили — отпустить. Резкое торможение усугубит занос</span></div>
+      <div class="step"><span><strong>Рулить В сторону заноса</strong> — туда, куда движется задняя часть машины. Смотрите, КУДА хотите ехать</span></div>
+      <div class="step"><span><strong>Выровнять руль</strong>, как только сцепление вернулось — иначе уйдёте в обратный занос (fishtail)</span></div>
+    </div>
+    <div class="mnemonic">Газ отпустил. Тормоз не трогал. Руль — куда несёт.</div>
+    <div class="row"><span class="num">💧</span><span class="label"><strong>Аквапланирование:</strong> то же самое — снять газ, держать руль ровно, НЕ тормозить, ждать пока скорость упадёт</span></div>
+    <div class="tip">Самые опасные — <strong>первые 15 минут дождя</strong> (масло + вода). Не использовать круиз-контроль в дождь.</div>
+  </section>
+
+  <!-- ВЕЛОСИПЕДЫ И УЯЗВИМЫЕ -->
+  <section class="card">
+    <h2>Велосипеды и пешеходы <span class="tag">VRU</span></h2>
+    <div class="row"><span class="num">3 фута</span><span class="label">Минимум при обгоне велосипедиста</span></div>
+    <div class="row"><span class="num">200</span><span class="label">футов — въезд на велодорожку перед поворотом разрешён</span></div>
+    <div class="row"><span class="num">—</span><span class="label">Пешеход — это любой пеший, плюс инвалиды на колясках/трёхколёсках/квадроциклах</span></div>
+    <div class="row"><span class="num">—</span><span class="label">Слепой с белой тростью или собакой-поводырём — ВСЕГДА приоритет, не сигналить</span></div>
+    <div class="row"><span class="num">—</span><span class="label">Пешеход поднял трость и отошёл от перекрёстка → можно ехать</span></div>
+    <div class="row"><span class="num">—</span><span class="label">Велосипедисты могут ехать в общем потоке, поворачивать налево из левой полосы</span></div>
+    <div class="tip">Гибридные/электрические машины особенно опасны для слепых — они вас не слышат.</div>
+  </section>
+
+  <!-- ОБ ЭКЗАМЕНЕ -->
+  <div class="callout">
+    <strong>В день экзамена.</strong> 36 вопросов, проходной балл 30/36 (≈83%). Бесплатных попыток — 3, между ними 7 дней (для миноров). С собой иметь документы для REAL ID, 2 подтверждения проживания в CA, номер SSN. Никаких телефонов, бумажных шпаргалок, переводчиков. Тест можно сдавать на русском — попросите при подаче заявления.
+  </div>
+
+  <div class="warn-box">
+    <strong>САМЫЕ ЧАСТЫЕ ОШИБКИ ОПЫТНЫХ ВОДИТЕЛЕЙ:</strong>
+    Путают 15 / 20 футов от пешеходного перехода. Считают, что на красную стрелку можно повернуть направо после остановки (НЕЛЬЗЯ). Не знают, что при светофоре, который не работает, перекрёсток превращается в 4-way stop. Пытаются обогнать большое ТС справа. Включают сигнал поворота слишком поздно. Не знают, в какую сторону крутить колёса при парковке БЕЗ бордюра. При заносе инстинктивно тормозят и выкручивают руль в противоположную сторону — ОБА действия неправильные.
+  </div>
+
+</div>
+
+<!-- ==================== БАНК ВОПРОСОВ ==================== -->
+
+<div class="qa-divider">
+  <h1>БАНК <span>ВОПРОСОВ</span></h1>
+  <div class="lede">
+    138 вопросов по всем 14 разделам California Driver's Handbook. Английская формулировка — как у DMV. Тренируйтесь так: читаете вопрос, пытаетесь ответить в уме, потом сверяетесь с правильным ответом и пояснением.
+  </div>
+</div>
+
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 1 <span class="qa-tag">Driver's License</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q1</span><span class="qa-text">Какой класс водительских прав требуется большинству водителей в Калифорнии?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What class of driver's license is required for most people in California?</div>
+    <div class="qa-answer">→ <strong>Некоммерческие права класса C</strong> (noncommercial Class C)</div>
+    <div class="qa-explain">Class C охватывает легковые машины и пикапы до определённого веса. Для коммерческого транспорта, мотоциклов и автобусов нужны другие классы.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q2</span><span class="qa-text">С какого момента и для каких целей требуется REAL ID?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Beginning when must your driver's license be REAL ID compliant?</div>
+    <div class="qa-answer">→ <strong>С мая 2025 года</strong> для внутренних авиарейсов, военных баз и большинства федеральных объектов</div>
+    <div class="qa-explain">Если ваши права не REAL ID-совместимые, для самолёта нужен паспорт. Получение REAL ID — отдельная процедура с дополнительными документами личности.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q3</span><span class="qa-text">Может ли житель Калифорнии без иммиграционных документов получить водительские права?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Does California offer driver's licenses to residents regardless of immigration status?</div>
+    <div class="qa-answer">→ <strong>Да</strong></div>
+    <div class="qa-explain">Калифорния предлагает водительские удостоверения всем жителям независимо от иммиграционного статуса. Эти права имеют специальную маркировку и не являются REAL ID.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q4</span><span class="qa-text">Можно ли с DMV ID-картой управлять автомобилем?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Can you drive a vehicle with a California DMV ID card?</div>
+    <div class="qa-answer">→ <strong>Нет.</strong> ID-карта только для идентификации</div>
+    <div class="qa-explain">Удостоверения личности (ID cards) не дают права управлять транспортным средством — только подтверждают вашу личность.</div>
+  </article>
+</section>
+
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 2 <span class="qa-tag">Permit &amp; Driver's License</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q5</span><span class="qa-text">Какие документы нужны для подачи заявления на CA-права?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What do you need to apply for an instruction permit or driver's license?</div>
+    <div class="qa-answer">→ <strong>Подтверждение личности; 2 подтверждения проживания; юридический документ с полным именем (если не совпадает); SSN</strong></div>
+    <div class="qa-explain">Подтверждения проживания — обычно счёт за коммуналку, договор аренды, банковская выписка с CA-адресом. Возможны исключения по SSN.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q6</span><span class="qa-text">Сколько подтверждений проживания нужно?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How many proofs of residency are required when applying for a driver's license?</div>
+    <div class="qa-answer">→ <strong>Два</strong> (Two)</div>
+    <div class="qa-explain">Два независимых документа с CA-адресом, например: счёт за электричество + договор аренды.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q7</span><span class="qa-text">Если у вас нет водительских прав ни откуда, что нужно получить сначала?</span></div>
+    <div class="qa-en"><strong>EN:</strong> If you don't have a driver's license from California or another state, what must you apply for first?</div>
+    <div class="qa-answer">→ <strong>Instruction permit</strong> (ученическое разрешение)</div>
+    <div class="qa-explain">Без прав откуда-либо ещё — сначала ученическое разрешение, затем после практики и сдачи практического экзамена — полные права.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q8</span><span class="qa-text">Сколько часов практики вождения должен иметь несовершеннолетний для подачи на права?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How many hours of supervised driving practice must minors complete?</div>
+    <div class="qa-answer">→ <strong>Минимум 50 часов, из них 10 часов ночью</strong></div>
+    <div class="qa-explain">Только для миноров (до 18). Практика с водителем не моложе 25 лет, имеющим CA-права.</div>
+  </article>
+</section>
+
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 3 <span class="qa-tag">Testing Process</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q9</span><span class="qa-text">Какие три теста входят в процесс получения CA-прав?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What are the main tests for getting a driver's license?</div>
+    <div class="qa-answer">→ <strong>Тест зрения; теоретический экзамен (knowledge test); практический за рулём (behind-the-wheel)</strong></div>
+    <div class="qa-explain">Все три обязательны для впервые получающих. Для пересдачи прав — обычно только зрение и иногда теория.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q10</span><span class="qa-text">Сколько попыток сдать теоретический экзамен у вас есть?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How many attempts do you have to pass the knowledge test?</div>
+    <div class="qa-answer">→ <strong>Три попытки</strong></div>
+    <div class="qa-explain">После трёх провалов — повторная подача заявления и оплата сбора заново.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q11</span><span class="qa-text">Сколько ждать минору для пересдачи теории после провала?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How long must minors wait to retake a failed knowledge test?</div>
+    <div class="qa-answer">→ <strong>7 дней</strong> (не считая день провала)</div>
+    <div class="qa-explain">Взрослые могут пересдавать на следующий рабочий день — никакого ожидания.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q12</span><span class="qa-text">Сколько ждать минору для пересдачи практики?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How long must minors wait to retake a failed behind-the-wheel drive test?</div>
+    <div class="qa-answer">→ <strong>14 дней</strong> (не считая день провала)</div>
+    <div class="qa-explain">Это вдвое больше, чем для пересдачи теории. Для практики требуется больше подготовки.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q13</span><span class="qa-text">Какова минимальная глубина протектора шин на практическом экзамене?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the minimum tire tread depth required for the behind-the-wheel test?</div>
+    <div class="qa-answer">→ <strong>1/32 дюйма</strong></div>
+    <div class="qa-explain">Машина с лысыми шинами не допустят к экзамену. Также нельзя использовать запасное колесо-докатку.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q14</span><span class="qa-text">Можно ли использовать переводчика на практическом экзамене?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Can an interpreter accompany you during the behind-the-wheel test?</div>
+    <div class="qa-answer">→ <strong>Нет.</strong> Только в предэкзаменационном осмотре машины</div>
+    <div class="qa-explain">Только экзаменатор DMV в машине. Исключения — для тренеров и служебных животных.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q15</span><span class="qa-text">На каком расстоянии должен быть слышен гудок (для drive test)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> From what distance must your horn be loud enough to be heard?</div>
+    <div class="qa-answer">→ <strong>Минимум 200 футов</strong></div>
+    <div class="qa-explain">Это требование к машине, на которой вы сдаёте практический экзамен.</div>
+  </article>
+</section>
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 4 <span class="qa-tag">Changing, Replacing, Renewing</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q16</span><span class="qa-text">В какой срок нужно уведомить DMV о смене адреса?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How many days do you have to notify DMV of an address change?</div>
+    <div class="qa-answer">→ <strong>10 дней</strong></div>
+    <div class="qa-explain">Подать можно онлайн на dmv.ca.gov/addresschange или почтой. Новые права автоматически НЕ выдают — это можно запросить отдельно за плату.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q17</span><span class="qa-text">Можно ли продлить права онлайн, находясь за пределами штата?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Can you request a one-year extension on your driver's license if you are out of state?</div>
+    <div class="qa-answer">→ <strong>Да, на 1 год</strong> по email dl-extensions@dmv.ca.gov</div>
+    <div class="qa-explain">Перед истечением прав. Не работает для лиц с ограниченным сроком действия (например, иммиграционный статус).</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q18</span><span class="qa-text">Что нужно сделать со старой картой прав после получения новой?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do with your old driver's license card if you find it after replacement?</div>
+    <div class="qa-answer">→ <strong>Уничтожить</strong> (destroy)</div>
+    <div class="qa-explain">Старая карта недействительна. Использование её — нарушение.</div>
+  </article>
+</section>
+
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 5 <span class="qa-tag">Introduction to Driving</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q19</span><span class="qa-text">Каковы рекомендуемые позиции рук на руле?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What are the recommended hand positions on the steering wheel?</div>
+    <div class="qa-answer">→ <strong>9 и 3 часа ИЛИ 8 и 4 часа</strong></div>
+    <div class="qa-explain">Старая позиция «10 и 2» больше не рекомендуется — при срабатывании подушки безопасности руки могут ударить в лицо.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q20</span><span class="qa-text">В каких двух ситуациях разрешено управлять рулём одной рукой?</span></div>
+    <div class="qa-en"><strong>EN:</strong> When is one-hand steering acceptable?</div>
+    <div class="qa-answer">→ <strong>При движении задним ходом с поворотом головы; при использовании приборов в машине</strong></div>
+    <div class="qa-explain">В обычной езде обе руки должны быть на руле всегда.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q21</span><span class="qa-text">За какое время до поворота нужно включать сигнал?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How far in advance should you signal a turn?</div>
+    <div class="qa-answer">→ <strong>За 100 футов до поворота на обычной дороге; за 5 секунд до перестроения на freeway</strong></div>
+    <div class="qa-explain">Сигнал также нужен перед каждым перестроением и при отъезде от бордюра.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q22</span><span class="qa-text">Разрешено ли водить с наушниками в обоих ушах?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Is it legal to wear headphones or earplugs in both ears while driving?</div>
+    <div class="qa-answer">→ <strong>Нет</strong></div>
+    <div class="qa-explain">Нужно слышать сирены, гудки, звуки опасности. Один наушник — допустимо.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q23</span><span class="qa-text">Когда врач обязан сообщить о пациенте в DMV?</span></div>
+    <div class="qa-en"><strong>EN:</strong> When are physicians required to report patients to DMV?</div>
+    <div class="qa-answer">→ <strong>Если пациенту 14+ лет и у него состояние, влияющее на безопасное вождение</strong> (например, потеря сознания)</div>
+    <div class="qa-explain">Это обязательное требование закона. Может привести к повторному обследованию или приостановке прав.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q24</span><span class="qa-text">Когда правильно использовать звуковой сигнал (гудок)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> When should you use your horn?</div>
+    <div class="qa-answer">→ <strong>Чтобы избежать столкновения; на узких горных дорогах с видимостью &lt;200 футов</strong></div>
+    <div class="qa-explain">Не сигналить слепым пешеходам — это испугает их. Не сигналить агрессивно «от обиды».</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q25</span><span class="qa-text">Как использовать ручные сигналы поворота?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How do you signal a left turn, right turn, and stop with hand-and-arm signals?</div>
+    <div class="qa-answer">→ <strong>Левый: рука прямо в сторону. Правый: рука согнута вверх. Стоп: рука согнута вниз</strong></div>
+    <div class="qa-explain">Используется когда поворотники не работают или их плохо видно из-за яркого солнца.</div>
+  </article>
+</section>
+
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 6 <span class="qa-tag">Navigating the Roads</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q26</span><span class="qa-text">Что означает одиночная сплошная жёлтая линия?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What does a single solid yellow line mean?</div>
+    <div class="qa-answer">→ <strong>Центр дороги с двусторонним движением. Обгон ЗАПРЕЩЁН если она с вашей стороны</strong></div>
+    <div class="qa-explain">Жёлтые линии всегда разделяют встречные потоки.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q27</span><span class="qa-text">Когда можно пересечь двойную сплошную жёлтую линию?</span></div>
+    <div class="qa-en"><strong>EN:</strong> When may you cross a double solid yellow line?</div>
+    <div class="qa-answer">→ <strong>Для въезда/выезда из подъездной дороги; для разворота (где разрешён); HOV-выезд через специальный разрыв</strong></div>
+    <div class="qa-explain">Все три случая — кратковременное пересечение поперёк, не движение по встречке.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q28</span><span class="qa-text">Что значат две пары двойных сплошных жёлтых линий, разделённых на 2+ фута?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What do two sets of solid double yellow lines spaced two or more feet apart mean?</div>
+    <div class="qa-answer">→ <strong>БАРЬЕР.</strong> Никакого пересечения, поворотов налево, разворотов</div>
+    <div class="qa-explain">Считается физическим барьером, кроме специально обозначенных проездов.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q29</span><span class="qa-text">Что значит прерывистая жёлтая линия рядом с вашей полосой?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What does a broken yellow line next to your lane mean?</div>
+    <div class="qa-answer">→ <strong>Обгон РАЗРЕШЁН, когда безопасно</strong></div>
+    <div class="qa-explain">Только если безопасно — должна быть достаточная видимость и нет встречных в опасной близости.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q30</span><span class="qa-text">Что значит сплошная + прерывистая жёлтая (комбинированная)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> A solid yellow line next to a broken yellow line means that vehicles:</div>
+    <div class="qa-answer">→ <strong>Со стороны прерывистой — могут обгонять. Со стороны сплошной — не могут</strong></div>
+    <div class="qa-explain">Правило определяет та линия, которая ближе к вашей стороне дороги.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q31</span><span class="qa-text">Что отделяет двойная сплошная белая линия?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What does a double solid white line indicate?</div>
+    <div class="qa-answer">→ <strong>Барьер между обычной полосой и преференциальной (HOV/carpool); въезды и выезды с freeway</strong></div>
+    <div class="qa-explain">Никогда не менять полосу через двойную белую — ждите одиночную прерывистую белую.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q32</span><span class="qa-text">Что такое линия Yield (уступи дорогу)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is a yield line?</div>
+    <div class="qa-answer">→ <strong>Линия из сплошных белых треугольников</strong>, показывающая где уступить или остановиться</div>
+    <div class="qa-explain">Треугольники указывают, откуда едут машины, имеющие право проезда.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q33</span><span class="qa-text">Когда разрешено ехать по полосе HOV?</span></div>
+    <div class="qa-en"><strong>EN:</strong> When can you use the high-occupancy vehicle (HOV) lane?</div>
+    <div class="qa-answer">→ <strong>С определённым числом пассажиров; на низкоэмиссионном/электрическом ТС со спец. наклейкой; на мотоцикле</strong></div>
+    <div class="qa-explain">Минимум пассажиров и часы действия указаны на знаках. Въезд только через специальные разрывы в линиях.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q34</span><span class="qa-text">Сколько футов можно проехать по центральной полосе для левого поворота?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How far may you drive in a center left turn lane?</div>
+    <div class="qa-answer">→ <strong>Не более 200 футов</strong></div>
+    <div class="qa-explain">Эта полоса только для подготовки к повороту налево или развороту, НЕ для движения вперёд или обгона.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q35</span><span class="qa-text">На каком расстоянии перед поворотом можно въехать в велодорожку?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How close to a turn may you enter a bicycle lane?</div>
+    <div class="qa-answer">→ <strong>Не более чем за 200 футов до поворота</strong></div>
+    <div class="qa-explain">Раньше нельзя — это нарушение и опасно для велосипедистов.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q36</span><span class="qa-text">Какое расстояние нужно для слияния с потоком на городской улице?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How much space is needed to merge into traffic on a city street?</div>
+    <div class="qa-answer">→ <strong>Полквартала (~150 футов)</strong></div>
+    <div class="qa-explain">На freeway нужен полный квартал — 300 футов.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q37</span><span class="qa-text">Какое расстояние нужно для слияния на автомагистрали?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How much space is needed to merge into freeway traffic?</div>
+    <div class="qa-answer">→ <strong>Полный квартал (~300 футов)</strong></div>
+    <div class="qa-explain">На большей скорости нужен больший просвет, чтобы успеть разогнаться.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q38</span><span class="qa-text">С какой скоростью въезжать на freeway по on-ramp?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What speed should you be driving when entering a highway?</div>
+    <div class="qa-answer">→ <strong>На скорости потока движения или близкой к ней</strong> (at or near the speed of traffic)</div>
+    <div class="qa-explain">Не останавливаться без крайней необходимости — это опасно для слияния.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q39</span><span class="qa-text">За сколько секунд до съезда с freeway включить сигнал?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How long before exiting a freeway should you signal?</div>
+    <div class="qa-answer">→ <strong>5 секунд</strong> (примерно 400 футов) до съезда</div>
+    <div class="qa-explain">Сигнализируйте заранее, чтобы предупредить других водителей.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q40</span><span class="qa-text">С какой стороны обгонять большие грузовики?</span></div>
+    <div class="qa-en"><strong>EN:</strong> On which side should you pass large vehicles or trucks?</div>
+    <div class="qa-answer">→ <strong>Всегда слева, никогда справа</strong></div>
+    <div class="qa-explain">Справа у грузовиков большие слепые зоны. Если не видите боковые зеркала грузовика — водитель не видит вас.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q41</span><span class="qa-text">Как выполнить параллельную парковку?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the proper procedure for parallel parking?</div>
+    <div class="qa-answer">→ <strong>Найти место длиннее машины на 3+ фута; остановиться рядом с передней машиной; задом под углом ~45°; выровнять</strong></div>
+    <div class="qa-explain">Финальная позиция — параллельно бордюру, в пределах 18 дюймов от него.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q42</span><span class="qa-text">На каком максимальном расстоянии от бордюра должна стоять припаркованная машина?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How close to the curb should your wheels be when parallel parked?</div>
+    <div class="qa-answer">→ <strong>В пределах 18 дюймов</strong></div>
+    <div class="qa-explain">Дальше — могут эвакуировать или штрафовать.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q43</span><span class="qa-text">На каком расстоянии от пожарного гидранта запрещена парковка?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How many feet from a fire hydrant is parking prohibited?</div>
+    <div class="qa-answer">→ <strong>15 футов</strong></div>
+    <div class="qa-explain">Это критично для пожарных — им нужен доступ.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q44</span><span class="qa-text">На каком расстоянии от пешеходного перехода запрещена парковка?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How many feet from a crosswalk is parking prohibited?</div>
+    <div class="qa-answer">→ <strong>20 футов (или 15 при curb extension)</strong></div>
+    <div class="qa-explain">Это для видимости пешеходов на переходе.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q45</span><span class="qa-text">Что означают цвета бордюров?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What do red, white, yellow, green, and blue painted curbs mean?</div>
+    <div class="qa-answer">→ <strong>Красный — стоп/парковка ЗАПРЕЩЕНЫ; белый — посадка/высадка; жёлтый — погрузка; зелёный — лимит времени; синий — для инвалидов</strong></div>
+    <div class="qa-explain">Жёлтый на некоммерческом ТС — водитель должен оставаться при машине. Синий — нужна спец. табличка.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q46</span><span class="qa-text">Как делать левый поворот с двусторонней улицы на двустороннюю?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How should you make a left turn from a two-way street onto a two-way street?</div>
+    <div class="qa-answer">→ <strong>Начать с крайней левой полосы; завершить в крайней левой целевой стороны</strong></div>
+    <div class="qa-explain">Это снижает риск столкновения с встречными потоками.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q47</span><span class="qa-text">Как делать правый поворот?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How should you make a right turn?</div>
+    <div class="qa-answer">→ <strong>Начать и завершить в крайней правой полосе; не выходить на соседнюю полосу</strong></div>
+    <div class="qa-explain">Перед поворотом проверить велосипедистов через правое плечо. Можно въехать в bike lane не более чем за 200 футов.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q48</span><span class="qa-text">Как двигаться задним ходом по прямой?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How should you back up in a straight line?</div>
+    <div class="qa-answer">→ <strong>Двигаться назад на длину 3 машин, оставаясь в пределах 3 футов от бордюра</strong></div>
+    <div class="qa-explain">Поворачивать голову назад, проверять слепые зоны. Камера заднего вида не заменяет визуальную проверку.</div>
+  </article>
+</section>
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 7 <span class="qa-tag">Laws &amp; Rules of the Road</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q49</span><span class="qa-text">Что значит сплошной красный сигнал светофора?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What does a solid red traffic signal mean?</div>
+    <div class="qa-answer">→ <strong>Стоп.</strong> Поворот направо разрешён после полной остановки, если нет знака NO TURN ON RED</div>
+    <div class="qa-explain">На красный нужно остановиться полностью, потом проверить пешеходов и встречку.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q50</span><span class="qa-text">Что значит красная стрелка?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What does a red arrow mean?</div>
+    <div class="qa-answer">→ <strong>Стоп.</strong> Поворачивать НЕЛЬЗЯ, даже после остановки</div>
+    <div class="qa-explain">Красная стрелка строже, чем красный круг — это самая частая ошибка опытных водителей.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q51</span><span class="qa-text">Что значит мигающий красный свет?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What does a flashing red light mean?</div>
+    <div class="qa-answer">→ <strong>То же что STOP-знак: остановиться, потом проехать когда безопасно</strong></div>
+    <div class="qa-explain">Аналогично знаку STOP, но мигает.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q52</span><span class="qa-text">Что значит сплошной жёлтый сигнал?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What does a solid yellow light mean?</div>
+    <div class="qa-answer">→ <strong>Внимание: скоро красный. Остановиться, если можно безопасно</strong></div>
+    <div class="qa-explain">Если не успеваете тормозить — продолжайте, но не ускоряйтесь.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q53</span><span class="qa-text">Что значит мигающий жёлтый сигнал?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What does a flashing yellow light mean?</div>
+    <div class="qa-answer">→ <strong>Внимание, проезжать осторожно. Останавливаться НЕ обязано</strong></div>
+    <div class="qa-explain">Просто предупреждение. Снизить скорость и быть начеку.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q54</span><span class="qa-text">Что значит мигающая жёлтая стрелка?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What does a flashing yellow arrow mean?</div>
+    <div class="qa-answer">→ <strong>Поворот разрешён, но не защищён — уступить встречным</strong></div>
+    <div class="qa-explain">Можно поворачивать, но осторожно, на свой риск.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q55</span><span class="qa-text">Что делать, если светофор не работает?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do when a traffic signal is not working?</div>
+    <div class="qa-answer">→ <strong>Действовать как при STOP во всех направлениях (4-way stop)</strong></div>
+    <div class="qa-explain">Перекрёсток превращается в 4-way stop. Первый приехал — первый поехал.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q56</span><span class="qa-text">Можно ли поворачивать налево на красный с односторонней на одностороннюю?</span></div>
+    <div class="qa-en"><strong>EN:</strong> When may you turn left against a red light?</div>
+    <div class="qa-answer">→ <strong>Да, после полной остановки и если нет запрещающего знака — с одностор. на одностор.</strong></div>
+    <div class="qa-explain">Это специфическое исключение для односторонних улиц.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q57</span><span class="qa-text">Когда можно повернуть направо на красный свет?</span></div>
+    <div class="qa-en"><strong>EN:</strong> When can you turn right on a red light?</div>
+    <div class="qa-answer">→ <strong>После полной остановки, если нет знака NO TURN ON RED, и уступив пешеходам</strong></div>
+    <div class="qa-explain">Поворот направо на красную стрелку — НЕЛЬЗЯ.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q58</span><span class="qa-text">Когда разрешён разворот (U-turn)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> When may you make a U-turn?</div>
+    <div class="qa-answer">→ <strong>Через двойную жёлтую (если знака нет); в жилом районе если встречка &gt;200 футов; на перекрёстке на зелёный; на разделённой магистрали через разрыв</strong></div>
+    <div class="qa-explain">Не разрешено: знак NO U-TURN, на ж/д, видимость &lt;200 футов в каждую сторону, на односторонней, перед пожарной частью, в деловом районе.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q59</span><span class="qa-text">Где запрещён разворот (U-turn)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Where is a U-turn never allowed?</div>
+    <div class="qa-answer">→ <strong>Где есть NO U-TURN; на ж/д; на односторонней; перед пожарной частью; в деловом районе; через 2 пары двойных жёлтых</strong></div>
+    <div class="qa-explain">Также запрещён при видимости &lt;200 футов в каждую сторону.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q60</span><span class="qa-text">Что делать на зелёном, если перекрёсток заблокирован?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do at a green light if the intersection is blocked?</div>
+    <div class="qa-answer">→ <strong>НЕ въезжать — ждать на своей стороне до освобождения</strong></div>
+    <div class="qa-explain">Запрещено блокировать перекрёсток — даже на зелёный.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q61</span><span class="qa-text">Кто имеет право проезда первым на 4-way stop?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Who has the right of way at a 4-way stop?</div>
+    <div class="qa-answer">→ <strong>Кто первым полностью остановился. Если одновременно — тому, кто справа</strong></div>
+    <div class="qa-explain">«Right is right». Это базовое правило.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q62</span><span class="qa-text">Кто имеет приоритет на T-перекрёстке без знаков?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Who has the right-of-way at a T-intersection without stop or yield signs?</div>
+    <div class="qa-answer">→ <strong>Машины на сквозной (через) дороге</strong></div>
+    <div class="qa-explain">Те, кто едут прямо по основной дороге, имеют приоритет.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q63</span><span class="qa-text">Что делать в круговой развязке (roundabout)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do when entering a roundabout?</div>
+    <div class="qa-answer">→ <strong>Сбавить скорость; уступить тем, кто УЖЕ внутри; движение против часовой стрелки</strong></div>
+    <div class="qa-explain">Не останавливаться внутри, не обгонять. Если пропустили выезд — продолжать круг.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q64</span><span class="qa-text">Кто имеет приоритет на узкой горной дороге?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Who has the right of way on a narrow mountain road?</div>
+    <div class="qa-answer">→ <strong>Тот, кто едет ВВЕРХ. Спускающийся сдаёт назад</strong></div>
+    <div class="qa-explain">Идущему вниз легче управлять задним ходом.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q65</span><span class="qa-text">Что делать при приближении машины экстренной службы?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do when an emergency vehicle approaches with sirens and flashing lights?</div>
+    <div class="qa-answer">→ <strong>Прижаться вправо к обочине, остановиться, ждать пока проедет</strong></div>
+    <div class="qa-explain">Не оставаться в потоке — нужно освободить путь.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q66</span><span class="qa-text">На каком минимальном расстоянии можно следовать за экстренной машиной с сиренами?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How close can you follow an emergency vehicle with sirens?</div>
+    <div class="qa-answer">→ <strong>Не ближе 300 футов</strong></div>
+    <div class="qa-explain">Это закон. Слишком близкое следование мешает работе экстренных служб.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q67</span><span class="qa-text">Что такое Move Over Law?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What does the Move Over Law require?</div>
+    <div class="qa-answer">→ <strong>При стоящей экстренной/буксировочной/дорожной машине с мигалками — перестроиться И сбавить скорость</strong></div>
+    <div class="qa-explain">Касается всех машин с включёнными мигалками, не только полиции/скорой. Tow trucks тоже.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q68</span><span class="qa-text">Что делать, когда школьный автобус мигает жёлтыми огнями?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do when a school bus is flashing yellow warning lights?</div>
+    <div class="qa-answer">→ <strong>Сбавить скорость и приготовиться остановиться</strong> (НЕ обязательно стоп)</div>
+    <div class="qa-explain">Жёлтые = предупреждение. Готовится остановиться, чтобы выпустить детей.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q69</span><span class="qa-text">Что делать, когда школьный автобус мигает красными огнями?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do when a school bus is flashing red lights?</div>
+    <div class="qa-answer">→ <strong>Полностью остановиться и ждать пока огни не погаснут (со всех направлений)</strong></div>
+    <div class="qa-explain">Исключение: на разделённой многополосной магистрали встречным НЕ нужно останавливаться.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q70</span><span class="qa-text">Каков штраф за непропуск школьного автобуса с красными мигалками?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the fine for failing to stop for a school bus with flashing red lights?</div>
+    <div class="qa-answer">→ <strong>До $1000 + лишение прав на 1 год</strong></div>
+    <div class="qa-explain">Это серьёзное нарушение из-за угрозы жизни детей.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q71</span><span class="qa-text">На каком расстоянии от школы (с детьми) скорость 25 mph?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Within how many feet of a school is the speed limit 25 mph when children are present?</div>
+    <div class="qa-answer">→ <strong>500 футов</strong></div>
+    <div class="qa-explain">Некоторые школьные зоны — даже 15 mph. Соблюдайте знаки.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q72</span><span class="qa-text">Какова скорость на слепом перекрёстке?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the speed limit at a blind intersection?</div>
+    <div class="qa-answer">→ <strong>15 миль/ч</strong></div>
+    <div class="qa-explain">Слепой = нет знаков остановки на углах и обзор закрыт. Если не видите 100 футов в каждую сторону.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q73</span><span class="qa-text">Какова скорость в переулке (alley)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the speed limit in an alley?</div>
+    <div class="qa-answer">→ <strong>15 миль/ч</strong></div>
+    <div class="qa-explain">Переулок — дорога не шире 25 футов, обычно для доступа к задним входам.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q74</span><span class="qa-text">Какова скорость возле ж/д переезда без барьера?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the speed limit within 100 feet of a railroad crossing if you cannot see for 400 feet in both directions?</div>
+    <div class="qa-answer">→ <strong>15 миль/ч</strong></div>
+    <div class="qa-explain">Можно ехать быстрее, если есть шлагбаум, сигнал или регулировщик.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q75</span><span class="qa-text">Какова скорость в жилом и деловом районе по умолчанию?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the speed limit in business or residential districts unless otherwise posted?</div>
+    <div class="qa-answer">→ <strong>25 миль/ч</strong></div>
+    <div class="qa-explain">Это базовый default для жилых и деловых зон Калифорнии.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q76</span><span class="qa-text">Какова скорость на 2-полосном неразделённом шоссе?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the maximum speed on a two-lane undivided highway?</div>
+    <div class="qa-answer">→ <strong>55 миль/ч</strong></div>
+    <div class="qa-explain">Также 55 mph при буксировке прицепа.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q77</span><span class="qa-text">Какова максимальная скорость на freeway в CA?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the maximum speed limit on most California highways?</div>
+    <div class="qa-answer">→ <strong>65 mph по умолчанию; до 70 mph на отдельных обозначенных freeway</strong></div>
+    <div class="qa-explain">Скорость регулируется знаками. Без знаков — 65.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q78</span><span class="qa-text">По каким полосам должны ехать тяжёлые грузовики на freeway?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Which lanes must trucks with three or more axles use on a 4+ lane freeway?</div>
+    <div class="qa-answer">→ <strong>Крайнюю правую полосу или специальную полосу для медленного транспорта</strong></div>
+    <div class="qa-explain">Если 4+ полосы и нет разметки — могут ехать только в двух правых.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q79</span><span class="qa-text">Что нужно сделать перед обгоном на холме или повороте?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How far ahead must you see to safely pass on a hill or curve?</div>
+    <div class="qa-answer">→ <strong>Минимум 1/3 мили</strong></div>
+    <div class="qa-explain">1/3 мили = около 1760 футов. Если не видно — не обгонять.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q80</span><span class="qa-text">На каком минимальном расстоянии от перекрёстка/моста запрещён обгон?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How close to an intersection, bridge, tunnel, or railroad crossing is passing prohibited?</div>
+    <div class="qa-answer">→ <strong>100 футов</strong></div>
+    <div class="qa-explain">Слишком опасно из-за непредсказуемых ситуаций.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q81</span><span class="qa-text">Что делать, если впереди машина с включёнными аварийными огнями?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do when you see a vehicle ahead with hazard lights flashing?</div>
+    <div class="qa-answer">→ <strong>Сбавить скорость — впереди возможно ДТП или другая опасность</strong></div>
+    <div class="qa-explain">Также по возможности перестроиться в другую полосу.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q82</span><span class="qa-text">Сколько баллов в досье приведёт к возможному лишению прав?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How many points in 12/24/36 months can lead to license suspension?</div>
+    <div class="qa-answer">→ <strong>4 балла за 12 мес. / 6 за 24 мес. / 8 за 36 мес.</strong></div>
+    <div class="qa-explain">Это для взрослых. Это пороги для статуса «небрежного водителя».</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q83</span><span class="qa-text">Как часто можно пройти Traffic School для скрытия 1-балльного штрафа?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How often can you attend traffic violator school to hide a 1-point ticket?</div>
+    <div class="qa-answer">→ <strong>Один раз в 18 месяцев</strong></div>
+    <div class="qa-explain">Скрывает от страховой, но остаётся в досье DMV.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q84</span><span class="qa-text">Какой штраф в зоне дорожных работ?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the fine for traffic violations in a construction zone?</div>
+    <div class="qa-answer">→ <strong>До $1000; штрафы УДВАИВАЮТСЯ при наличии рабочих</strong></div>
+    <div class="qa-explain">Также до $2000 + 1 год тюрьмы за оскорбление дорожного рабочего.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q85</span><span class="qa-text">Кто имеет право проезда — пешеход или машина на переходе?</span></div>
+    <div class="qa-en"><strong>EN:</strong> When must you yield to a pedestrian in a crosswalk?</div>
+    <div class="qa-answer">→ <strong>Всегда</strong>, маркированный или нет</div>
+    <div class="qa-explain">Пешеход всегда имеет приоритет на переходе. Не объезжать машину, остановившуюся перед переходом.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q86</span><span class="qa-text">Какой приоритет у слепого пешехода с тростью или собакой?</span></div>
+    <div class="qa-en"><strong>EN:</strong> When must you yield to a pedestrian using a white cane or guide dog?</div>
+    <div class="qa-answer">→ <strong>Всегда (at all times)</strong></div>
+    <div class="qa-explain">Не сигналить — испугает. Когда трость поднята и пешеход отошёл от перехода — можно ехать.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q87</span><span class="qa-text">Можно ли обгонять трамвай слева?</span></div>
+    <div class="qa-en"><strong>EN:</strong> When may you pass a streetcar or light rail on the left?</div>
+    <div class="qa-answer">→ <strong>Нельзя</strong>, кроме случаев: рельсы близко к правому краю; одностороння улица; указание полицейского</div>
+    <div class="qa-explain">При остановке трамвая — объезжать справа со скоростью не более 10 mph.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q88</span><span class="qa-text">Разрешено ли lane splitting (мотоциклы между полосами) в Калифорнии?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Is lane splitting (sharing a lane with a motorcycle) legal in California?</div>
+    <div class="qa-answer">→ <strong>Да, разрешено</strong></div>
+    <div class="qa-explain">Калифорния — единственный штат США, где lane splitting легализован. Будьте внимательны при перестроении.</div>
+  </article>
+</section>
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 8 <span class="qa-tag">Safe Driving</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q89</span><span class="qa-text">На сколько секунд вперёд нужно смотреть при движении?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How many seconds ahead of your vehicle should you scan the road?</div>
+    <div class="qa-answer">→ <strong>Минимум 10 секунд</strong></div>
+    <div class="qa-explain">Это даёт время среагировать на опасности и избежать манёвров в последний момент.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q90</span><span class="qa-text">Какое правило для безопасной дистанции до машины впереди?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What rule helps you maintain a safe following distance?</div>
+    <div class="qa-answer">→ <strong>Правило трёх секунд (Three-second rule)</strong></div>
+    <div class="qa-explain">Когда машина впереди проедет ориентир, отсчитайте 3 секунды. Если проехали раньше — слишком близко.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q91</span><span class="qa-text">Когда нужно увеличить дистанцию следования больше 3 секунд?</span></div>
+    <div class="qa-en"><strong>EN:</strong> When should you increase your following distance?</div>
+    <div class="qa-answer">→ <strong>Сзади едет вплотную; за мотоциклистом на металле/гравии; в плохую погоду; при буксировке</strong></div>
+    <div class="qa-explain">Также за грузовиком, который может закрывать обзор.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q92</span><span class="qa-text">Как проверять слепые зоны?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How should you check your blind spots?</div>
+    <div class="qa-answer">→ <strong>Поворачивая ГОЛОВУ через плечо (не корпус)</strong></div>
+    <div class="qa-explain">Корпус не должен поворачиваться вместе с рулём.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q93</span><span class="qa-text">На сколько mph снизить скорость на мокрой дороге?</span></div>
+    <div class="qa-en"><strong>EN:</strong> By how much should you reduce your speed on a wet road?</div>
+    <div class="qa-answer">→ <strong>На 5–10 mph меньше обычной</strong></div>
+    <div class="qa-explain">На укатанном снегу — на 50%. На льду — максимум 5 mph.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q94</span><span class="qa-text">Какова максимальная безопасная скорость на льду?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the maximum safe speed on icy roads?</div>
+    <div class="qa-answer">→ <strong>Максимум 5 миль/ч</strong></div>
+    <div class="qa-explain">Лёд практически устраняет сцепление шин с дорогой.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q95</span><span class="qa-text">При видимости менее 100 футов — какая макс. безопасная скорость?</span></div>
+    <div class="qa-en"><strong>EN:</strong> If you cannot see farther than 100 feet, what is the maximum safe speed?</div>
+    <div class="qa-answer">→ <strong>Не быстрее 30 миль/ч</strong></div>
+    <div class="qa-explain">Это про сильный дождь, снег, туман, дым.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q96</span><span class="qa-text">Что делать при заносе (skid)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do if your vehicle starts to skid?</div>
+    <div class="qa-answer">→ <strong>Отпустить газ; НЕ тормозить; рулить В СТОРОНУ заноса</strong></div>
+    <div class="qa-explain">Не дёргать руль резко. Цель — выровнять машину. Рулить туда, куда движется задняя часть.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q97</span><span class="qa-text">Что делать при аквапланировании?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do if your vehicle starts hydroplaning?</div>
+    <div class="qa-answer">→ <strong>Снять ногу с газа; НЕ тормозить; держать руль ровно; ждать восстановления</strong></div>
+    <div class="qa-explain">Любое резкое движение усугубит ситуацию.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q98</span><span class="qa-text">Как избежать аквапланирования?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How can you avoid hydroplaning?</div>
+    <div class="qa-answer">→ <strong>Двигаться медленно; объезжать стоячую воду; сбавлять при смене полосы</strong></div>
+    <div class="qa-explain">Особенно опасны первые 15 минут после начала дождя — масло+вода+пыль.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q99</span><span class="qa-text">Что делать, если у вас лопнула шина (blowout)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do if you have a tire blowout?</div>
+    <div class="qa-answer">→ <strong>Не паниковать; держать руль обеими руками; постепенно отпустить газ; не тормозить резко; рулить туда, куда хотите ехать</strong></div>
+    <div class="qa-explain">Резкое торможение или резкий поворот руля — потеря контроля.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q100</span><span class="qa-text">Что делать, если машина заглохла на ж/д переезде?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do if your vehicle stalls on railroad tracks with a train approaching?</div>
+    <div class="qa-answer">→ <strong>Немедленно выйти; бежать ПО ДИАГОНАЛИ навстречу поезду; потом 911</strong></div>
+    <div class="qa-explain">По диагонали — чтобы обломки летели не на вас.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q101</span><span class="qa-text">Что делать при отказе тормозов?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do if your brakes fail?</div>
+    <div class="qa-answer">→ <strong>Качать педаль; перейти на пониженную передачу; использовать стояночный тормоз; тереть бок об ограждение</strong></div>
+    <div class="qa-explain">Понижение передачи замедляет машину двигателем.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q102</span><span class="qa-text">Что делать, если вы устали за рулём?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do if you become drowsy while driving?</div>
+    <div class="qa-answer">→ <strong>Остановиться и отдохнуть. Кофе и громкая музыка не помогают</strong></div>
+    <div class="qa-explain">Усталость снижает реакцию как алкоголь.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q103</span><span class="qa-text">Каковы симптомы отравления угарным газом?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What are symptoms of carbon monoxide poisoning?</div>
+    <div class="qa-answer">→ <strong>Усталость, зевота, головокружение, тошнота, головная боль, звон в ушах</strong></div>
+    <div class="qa-explain">Если есть симптомы — проверить выхлопную систему. Никогда не заводить машину в закрытом гараже.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q104</span><span class="qa-text">Можно ли использовать мобильный телефон во время вождения?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Can adult drivers use a cell phone while driving?</div>
+    <div class="qa-answer">→ <strong>Только в режиме hands-free (громкая связь). Текстить — запрещено</strong></div>
+    <div class="qa-explain">Несовершеннолетним — телефон полностью запрещён, кроме экстренного звонка.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q105</span><span class="qa-text">Минимальное расстояние от подушки безопасности?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the minimum distance you should sit from the airbag?</div>
+    <div class="qa-answer">→ <strong>10 дюймов от центра рулевого колеса до грудины</strong></div>
+    <div class="qa-explain">Подушка раскрывается со скоростью ~300 км/ч — слишком близко = травма или смерть.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q106</span><span class="qa-text">Что делать, если ваша машина сломалась на freeway?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do if your vehicle becomes disabled on the freeway?</div>
+    <div class="qa-answer">→ <strong>Безопасно съехать вправо; включить аварийку; выйти с правой стороны (от потока); 511 или экстренный звонок</strong></div>
+    <div class="qa-explain">Возвращаться в машину тоже с правой стороны. Оставаться внутри пристёгнутым до помощи.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q107</span><span class="qa-text">До какого возраста ребёнок должен ехать спиной вперёд?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Until what age must a child be in a rear-facing car seat?</div>
+    <div class="qa-answer">→ <strong>До 2 лет; ИЛИ &lt;40 фунтов; ИЛИ &lt;3'4" роста</strong></div>
+    <div class="qa-explain">НЕ ставить такое кресло на переднее сиденье с активной подушкой безопасности — может убить ребёнка.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q108</span><span class="qa-text">До какого возраста ребёнок должен ехать в детском кресле?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Until what age or height must a child use a car seat or booster?</div>
+    <div class="qa-answer">→ <strong>До 8 лет ИЛИ ниже 4'9"</strong></div>
+    <div class="qa-explain">Должны быть на заднем сиденье. После 8 лет ИЛИ выше 4'9" — обычный ремень.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q109</span><span class="qa-text">До какого возраста нельзя оставлять ребёнка в машине одного?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the youngest age a child can be left unattended in a vehicle?</div>
+    <div class="qa-answer">→ <strong>До 6 лет включительно нельзя</strong></div>
+    <div class="qa-explain">С 6 лет ребёнок может оставаться, если рядом есть кто-то 12+ лет. Жара в машине смертельно опасна.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q110</span><span class="qa-text">Можно ли курить в машине, если внутри ребёнок?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Is it legal to smoke in a vehicle with a person younger than 18 years of age inside?</div>
+    <div class="qa-answer">→ <strong>Нет, всегда незаконно</strong></div>
+    <div class="qa-explain">Штраф водителю. Касается всех несовершеннолетних, не только младенцев.</div>
+  </article>
+</section>
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 9 <span class="qa-tag">Alcohol &amp; Drugs</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q111</span><span class="qa-text">Какой предел BAC для водителей старше 21 года?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the legal BAC limit for drivers over 21?</div>
+    <div class="qa-answer">→ <strong>0.08% или выше</strong></div>
+    <div class="qa-explain">При 0.08% и выше — DUI. Даже ниже — могут арестовать, если поведение указывает на опьянение.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q112</span><span class="qa-text">Какой предел BAC для водителей младше 21 года?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the legal BAC limit for drivers under 21?</div>
+    <div class="qa-answer">→ <strong>0.01% или выше</strong></div>
+    <div class="qa-explain">«Zero tolerance» для несовершеннолетних. Также для лиц на DUI-испытательном сроке.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q113</span><span class="qa-text">Какой предел BAC для коммерческих водителей?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the legal BAC limit for commercial drivers?</div>
+    <div class="qa-answer">→ <strong>0.04% или выше</strong></div>
+    <div class="qa-explain">Также для перевозки пассажиров за плату.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q114</span><span class="qa-text">Что такое «implied consent»?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What does "implied consent" mean in California?</div>
+    <div class="qa-answer">→ <strong>Садясь за руль, вы автоматически согласны на тест на алкоголь/наркотики при подозрении в DUI</strong></div>
+    <div class="qa-explain">Отказ от теста = автоматическое лишение прав на 1 год.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q115</span><span class="qa-text">Где разрешено хранить открытый контейнер алкоголя в машине?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Where can you legally store an open container of alcohol in a vehicle?</div>
+    <div class="qa-answer">→ <strong>Только в багажнике или там, где не сидят пассажиры</strong></div>
+    <div class="qa-explain">В бардачке — НЕЛЬЗЯ. В салоне, в кузове пикапа — НЕЛЬЗЯ.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q116</span><span class="qa-text">Какие наказания за первое DUI?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What are the penalties for a DUI conviction?</div>
+    <div class="qa-answer">→ <strong>Приостановка прав на 1 год; программа DUI; SR-22; до 6 мес тюрьмы; штраф; возможно установка алкозамка (IID)</strong></div>
+    <div class="qa-explain">Также конфискация ТС, гражданские иски при пострадавших.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q117</span><span class="qa-text">Сколько времени на запрос DMV-слушания после ареста за DUI?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How many days after a DUI arrest do you have to request a DMV administrative hearing?</div>
+    <div class="qa-answer">→ <strong>10 дней</strong> (14 если уведомление почтой)</div>
+    <div class="qa-explain">Если не запросить — приостановка автоматическая через 30 дней.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q118</span><span class="qa-text">Сколько лет DUI остаётся в досье?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How long do DUI convictions remain on your driver's record?</div>
+    <div class="qa-answer">→ <strong>10 лет</strong></div>
+    <div class="qa-explain">В этот период любое последующее DUI получит дополнительные санкции.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q119</span><span class="qa-text">Касаются ли законы DUI рецептурных лекарств?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Do DUI laws apply to prescription and over-the-counter medications?</div>
+    <div class="qa-answer">→ <strong>Да</strong>, если они влияют на способность безопасно водить</div>
+    <div class="qa-explain">Закон не различает запрещённые наркотики и легальные лекарства. Читайте инструкции.</div>
+  </article>
+</section>
+
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 10 <span class="qa-tag">Insurance &amp; Collisions</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q120</span><span class="qa-text">Какие минимальные суммы покрытия страховки в Калифорнии?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What are the minimum insurance coverage amounts in California?</div>
+    <div class="qa-answer">→ <strong>$30,000 за смерть/травму одного; $60,000 за нескольких; $15,000 за имущество</strong></div>
+    <div class="qa-explain">Это абсолютный минимум по закону.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q121</span><span class="qa-text">В какой срок подать SR-1 в DMV после ДТП?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Within how many days must you report a traffic accident to DMV?</div>
+    <div class="qa-answer">→ <strong>10 дней</strong></div>
+    <div class="qa-explain">Если ущерб &gt;$1000 ИЛИ есть пострадавшие/погибшие. Любое из двух.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q122</span><span class="qa-text">Когда обязательно подавать SR-1?</span></div>
+    <div class="qa-en"><strong>EN:</strong> When are you required to file an SR-1?</div>
+    <div class="qa-answer">→ <strong>Если ущерб &gt;$1000 ИЛИ кто-то ранен/погиб</strong></div>
+    <div class="qa-explain">Подаёт каждый водитель, независимо от вины. Даже на частной территории.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q123</span><span class="qa-text">В какой срок сообщить полиции о ДТП с пострадавшими?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How soon must you report a traffic accident with injuries to law enforcement?</div>
+    <div class="qa-answer">→ <strong>В течение 24 часов</strong></div>
+    <div class="qa-explain">Может сделать страховой агент, брокер или представитель.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q124</span><span class="qa-text">На сколько лет лишат прав за вождение без страховки при ДТП?</span></div>
+    <div class="qa-en"><strong>EN:</strong> How long can your license be suspended for being in a collision without insurance?</div>
+    <div class="qa-answer">→ <strong>До 4 лет</strong></div>
+    <div class="qa-explain">Не имеет значения, кто виноват. Можно вернуть права в последние 3 года через SR-22.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q125</span><span class="qa-text">Что нужно сделать на месте ДТП?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What should you do at the scene of a collision?</div>
+    <div class="qa-answer">→ <strong>Остановиться; помочь пострадавшим; 911 если есть пострадавшие; обменяться данными с другими водителями</strong></div>
+    <div class="qa-explain">Покинуть место ДТП — это hit-and-run, серьёзное преступление. Если можно — убрать машину с проезжей части.</div>
+  </article>
+</section>
+
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 11 <span class="qa-tag">Vehicle Registration</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q126</span><span class="qa-text">В какой срок нужно зарегистрировать машину после переезда в CA?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Within how many days must you register your vehicle after becoming a California resident?</div>
+    <div class="qa-answer">→ <strong>20 дней</strong></div>
+    <div class="qa-explain">Также после устройства на работу в CA. Нужен smog check.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q127</span><span class="qa-text">В какой срок переоформить title после покупки машины?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Within how many days must you transfer ownership when buying a vehicle?</div>
+    <div class="qa-answer">→ <strong>10 дней</strong></div>
+    <div class="qa-explain">За пропуск — штраф, который растёт со временем.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q128</span><span class="qa-text">В какой срок уведомить DMV о продаже машины?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Within how many days must you notify DMV after selling your vehicle?</div>
+    <div class="qa-answer">→ <strong>5 дней</strong></div>
+    <div class="qa-explain">Подать NRL (Notice of Transfer and Release of Liability) на dmv.ca.gov/nrl. Без этого вы продолжаете нести ответственность за машину.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q129</span><span class="qa-text">Должна ли машина пройти smog check для регистрации в CA?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Must vehicles registered in California meet emission control requirements?</div>
+    <div class="qa-answer">→ <strong>Да</strong></div>
+    <div class="qa-explain">DMV не зарегистрирует машину, не соответствующую калифорнийским стандартам выбросов.</div>
+  </article>
+</section>
+
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 12 <span class="qa-tag">Driver Safety</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q130</span><span class="qa-text">Что такое повторное обследование водителя (re-examination)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is a driver re-examination?</div>
+    <div class="qa-answer">→ <strong>Дополнительная проверка способности безопасно водить из-за физического или психического состояния</strong></div>
+    <div class="qa-explain">Обычно по направлению врача, полиции или DMV. Может включать тест зрения, теории, практики.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q131</span><span class="qa-text">Какие ограничения может наложить DMV на права?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What types of restrictions can DMV place on a driver's license?</div>
+    <div class="qa-answer">→ <strong>Корректирующие линзы; ручное управление; запрет ночного вождения; запрет freeway; ограничение по локации</strong></div>
+    <div class="qa-explain">Ограничения основаны на состоянии, не на возрасте. Нет специальных ограничений для пожилых.</div>
+  </article>
+</section>
+
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 13 <span class="qa-tag">Seniors and Driving</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q132</span><span class="qa-text">Что такое Mature Driver Program?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the Mature Driver Improvement Program?</div>
+    <div class="qa-answer">→ <strong>8-часовой курс для водителей 55+. Скидка от страховой. Сертификат действует 3 года</strong></div>
+    <div class="qa-explain">Продление — 4-часовой курс.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q133</span><span class="qa-text">С какого возраста можно получить бесплатный Senior ID?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Who is eligible for a no-fee Senior ID card?</div>
+    <div class="qa-answer">→ <strong>Лица 62 лет и старше</strong></div>
+    <div class="qa-explain">Это только идентификация, не разрешает водить.</div>
+  </article>
+</section>
+
+<section class="qa-section">
+  <h2 class="qa-section-title">Раздел 14 <span class="qa-tag">Glossary — ключевые термины</span></h2>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q134</span><span class="qa-text">Что такое VRU (Vulnerable Road Users)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What does VRU stand for?</div>
+    <div class="qa-answer">→ <strong>Уязвимые участники дорожного движения: велосипедисты, пешеходы, инвалиды на колясках/трёхколёсках</strong></div>
+    <div class="qa-explain">Им требуется особая осторожность.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q135</span><span class="qa-text">Кто считается «пешеходом» по DMV?</span></div>
+    <div class="qa-en"><strong>EN:</strong> Who is considered a pedestrian under California law?</div>
+    <div class="qa-answer">→ <strong>Идущий человек; на роликах/скейтборде; инвалиды на колясках/трёхколёсках/квадроциклах</strong></div>
+    <div class="qa-explain">Все имеют преимущественное право на переходе.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q136</span><span class="qa-text">Что значит «уступить дорогу» (yield)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What does "yield" mean?</div>
+    <div class="qa-answer">→ <strong>Подождать, сбавить скорость и быть готовым остановиться, чтобы пропустить других</strong></div>
+    <div class="qa-explain">Уступить — не значит остановиться обязательно, но быть готовым.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q137</span><span class="qa-text">Что такое «правило трёх секунд»?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is the three-second rule?</div>
+    <div class="qa-answer">→ <strong>Когда машина впереди проедет ориентир, отсчитайте 3 секунды. Если проехали раньше — слишком близко</strong></div>
+    <div class="qa-explain">Базовое правило безопасной дистанции.</div>
+  </article>
+
+  <article class="qa">
+    <div class="qa-q"><span class="qa-num">Q138</span><span class="qa-text">Что такое право преимущественного проезда (right-of-way)?</span></div>
+    <div class="qa-en"><strong>EN:</strong> What is right-of-way?</div>
+    <div class="qa-answer">→ <strong>Помогает определить, кому разрешено двигаться первым в ситуациях встречи на дороге</strong></div>
+    <div class="qa-explain">Никогда не рассчитывайте на то, что другие отдадут вам приоритет — лучше уступить.</div>
+  </article>
+</section>
+
+
+<footer>
+  <span>California Driver's Handbook 2025 • DMV.CA.GOV</span>
+  <span>Knowledge test prep v2 • Always verify current law</span>
+</footer>
+
+
+
+</body></html>

@@ -1,0 +1,537 @@
+/* ====== DMV PAGE — scoped styles ====== */
+
+.dmv-body {
+  background: #FAF7F2;
+}
+
+.dmv-page {
+  --ink: #14110F;
+  --paper: #FAF7F2;
+  --accent: #D4A017;
+  --highlight: #FFE873;
+  --warn: #C8362D;
+  --muted: #6B6358;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 11.5px;
+  line-height: 1.4;
+  padding: calc(var(--nav-h, 76px) + 32px) 24px 64px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── MASTHEAD ── */
+
+.dmv-page .masthead {
+  border-top: 6px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 16px 0 12px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.dmv-page .masthead h1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 42px;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.dmv-page .masthead h1 span {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0 8px;
+}
+
+.dmv-page .masthead .meta {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dmv-page .masthead .meta strong {
+  color: var(--ink);
+  display: block;
+  font-size: 11px;
+}
+
+.dmv-page .masthead .ver {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--ink);
+  padding: 1px 6px;
+  margin-top: 4px;
+  font-weight: 700;
+}
+
+/* ── LEDE ── */
+
+.dmv-page .lede {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--muted);
+  border-left: 3px solid var(--accent);
+  padding: 4px 0 4px 12px;
+  margin-bottom: 20px;
+}
+
+/* ── GRID ── */
+
+.dmv-page .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 1100px) {
+  .dmv-page .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .dmv-page .grid { grid-template-columns: 1fr; }
+}
+
+/* ── CARD — override main site styles ── */
+
+.dmv-page .card {
+  border: 1.5px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  padding: 12px 14px 14px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  cursor: default;
+  transition: none;
+  will-change: auto;
+}
+
+.dmv-page .card:hover {
+  box-shadow: none;
+  border-color: var(--ink);
+  transform: none;
+}
+
+.dmv-page .card.dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.dmv-page .card.dark .num { color: var(--accent); }
+.dmv-page .card.dark .label { color: rgba(250, 247, 242, 0.85); }
+.dmv-page .card.dark .label strong { color: var(--paper); }
+
+.dmv-page .card h2 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: inherit;
+}
+
+.dmv-page .card h2 .tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.dmv-page .card.dark h2 .tag { color: rgba(250, 247, 242, 0.45); }
+
+/* ── ROWS ── */
+
+.dmv-page .row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 10px;
+  padding: 4px 0;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.15);
+  align-items: baseline;
+}
+
+.dmv-page .card.dark .row { border-bottom-color: rgba(250, 247, 242, 0.2); }
+.dmv-page .row:last-child { border-bottom: none; }
+
+.dmv-page .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ink);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.dmv-page .card.dark .num { color: var(--accent); }
+.dmv-page .num.hl { background: var(--highlight); padding: 1px 4px; color: var(--ink) !important; }
+.dmv-page .num.warn { color: var(--warn) !important; }
+
+.dmv-page .label {
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+/* ── CURB COLORS ── */
+
+.dmv-page .curbs { display: flex; flex-direction: column; gap: 4px; }
+
+.dmv-page .curb {
+  display: grid;
+  grid-template-columns: 14px 60px 1fr;
+  gap: 8px;
+  align-items: start;
+  font-size: 10.5px;
+  padding: 4px 0;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.15);
+}
+
+.dmv-page .curb:last-child { border-bottom: none; }
+
+.dmv-page .curb .swatch {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--ink);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.dmv-page .curb .name {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+/* ── CALLOUT ── */
+
+.dmv-page .callout {
+  background: var(--highlight);
+  border: 1.5px solid var(--ink);
+  padding: 10px 12px;
+  margin-top: 12px;
+  font-size: 10.5px;
+  line-height: 1.4;
+  grid-column: 1 / -1;
+  color: var(--ink);
+}
+
+.dmv-page .callout strong {
+  font-family: 'Archivo Black', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-size: 11px;
+}
+
+/* ── WARN BOX ── */
+
+.dmv-page .warn-box {
+  background: var(--warn);
+  color: var(--paper);
+  padding: 10px 12px;
+  font-size: 10.5px;
+  line-height: 1.45;
+  grid-column: 1 / -1;
+  border: 1.5px solid var(--ink);
+}
+
+.dmv-page .warn-box strong {
+  font-family: 'Archivo Black', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-size: 11px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ── TIP ── */
+
+.dmv-page .tip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  color: var(--muted);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  line-height: 1.4;
+}
+
+.dmv-page .card.dark .tip {
+  color: rgba(250, 247, 242, 0.65);
+  border-top-color: rgba(250, 247, 242, 0.2);
+}
+
+.dmv-page .tip strong { color: var(--ink); }
+.dmv-page .card.dark .tip strong { color: var(--accent); }
+
+/* ── MNEMONIC ── */
+
+.dmv-page .mnemonic {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  background: var(--ink);
+  color: var(--accent);
+  padding: 6px 10px;
+  margin: 8px 0 4px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ── INLINE NOTE ── */
+
+.dmv-page .note-inline {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 2px;
+  font-style: italic;
+}
+
+.dmv-page .card.dark .note-inline { color: rgba(250, 247, 242, 0.6); }
+
+/* ── STEPS ── */
+
+.dmv-page .steps {
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+.dmv-page .step {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 8px;
+  align-items: baseline;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.dmv-page .step::before {
+  counter-increment: step;
+  content: counter(step);
+  font-family: 'Archivo Black', sans-serif;
+  background: var(--ink);
+  color: var(--accent);
+  text-align: center;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  font-size: 11px;
+}
+
+.dmv-page .card.dark .step::before {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+/* ── QA BANK ── */
+
+.dmv-page .qa-divider {
+  margin: 48px 0 24px;
+  border-top: 6px solid var(--ink);
+  padding-top: 20px;
+}
+
+.dmv-page .qa-divider h1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 36px;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.dmv-page .qa-divider h1 span {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0 8px;
+}
+
+.dmv-page .qa-divider .lede {
+  font-style: italic;
+  color: var(--muted);
+  border-left: 3px solid var(--accent);
+  padding: 4px 0 4px 12px;
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+
+.dmv-page .qa-section {
+  margin-bottom: 32px;
+  page-break-inside: auto;
+}
+
+.dmv-page .qa-section h2.qa-section-title {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 12px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: none;
+}
+
+.dmv-page .qa-section h2.qa-section-title .qa-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  text-transform: lowercase;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.dmv-page article.qa {
+  border-left: 3px solid var(--ink);
+  padding: 8px 0 8px 14px;
+  margin-bottom: 14px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.dmv-page article.qa .qa-q {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.dmv-page article.qa .qa-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 11px;
+  background: var(--ink);
+  color: var(--accent);
+  padding: 2px 6px;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.dmv-page article.qa .qa-text {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.dmv-page article.qa .qa-en {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  margin: 4px 0 6px;
+  line-height: 1.5;
+  padding-left: 38px;
+}
+
+.dmv-page article.qa .qa-en strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.dmv-page article.qa .qa-answer {
+  font-size: 12px;
+  line-height: 1.45;
+  padding-left: 38px;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+
+.dmv-page article.qa .qa-answer strong {
+  background: var(--highlight);
+  padding: 1px 4px;
+  font-weight: 700;
+}
+
+.dmv-page article.qa .qa-explain {
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--muted);
+  padding-left: 38px;
+  border-top: 1px dotted rgba(0, 0, 0, 0.15);
+  padding-top: 4px;
+  margin-top: 4px;
+}
+
+/* ── RESPONSIVE ── */
+
+@media (max-width: 700px) {
+  .dmv-page article.qa .qa-en,
+  .dmv-page article.qa .qa-answer,
+  .dmv-page article.qa .qa-explain { padding-left: 0; }
+}
+
+@media (max-width: 600px) {
+  .dmv-page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .dmv-page .masthead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .dmv-page .masthead h1 {
+    font-size: 30px;
+  }
+
+  .dmv-page .masthead .meta {
+    text-align: left;
+  }
+}
+
+/* ── PRINT ── */
+
+@media print {
+  #nav,
+  #footer { display: none !important; }
+
+  .dmv-page {
+    padding-top: 0;
+    font-size: 10px;
+  }
+
+  .dmv-page .grid { gap: 10px; }
+  .dmv-page .card { padding: 10px 12px; border-width: 1px; }
+
+  @page { size: A4; margin: 8mm; }
+
+  .dmv-page .qa-divider h1 { font-size: 24px; }
+  .dmv-page .qa-section { margin-bottom: 18px; }
+  .dmv-page .qa-section h2.qa-section-title { font-size: 12px; padding: 5px 8px; }
+  .dmv-page article.qa { padding: 5px 0 5px 10px; margin-bottom: 8px; }
+  .dmv-page article.qa .qa-text { font-size: 10.5px; }
+  .dmv-page article.qa .qa-en { font-size: 8.5px; padding-left: 28px; }
+  .dmv-page article.qa .qa-answer { font-size: 10px; padding-left: 28px; }
+  .dmv-page article.qa .qa-explain { font-size: 9px; padding-left: 28px; }
+}
